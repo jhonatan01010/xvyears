@@ -473,7 +473,7 @@ main {
 /* Estilo para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .countdown-container {
-    margin-top: 8rem; /* Ajusta según cómo se vea en tu celular */
+    margin-top: 4rem; /* Ajusta según cómo se vea en tu celular */
   }
 }
 
