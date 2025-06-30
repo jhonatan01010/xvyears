@@ -293,7 +293,7 @@ main {
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin-top:9rem; /* Ajusta según necesidad */
+  margin-top:15rem; /* Ajusta según necesidad */
   display: flex;
   justify-content: center;
 }
