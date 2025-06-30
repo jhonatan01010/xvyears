@@ -293,7 +293,7 @@ main {
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin-top: -9rem; /* Ajusta según necesidad */
+  margin-top:9rem; /* Ajusta según necesidad */
   display: flex;
   justify-content: center;
 }
@@ -397,7 +397,7 @@ main {
 
   animation:
     fadeIn 0.5s ease-out forwards 9s,
-    typing-name 4s steps(20, end) 9.3s forwards;
+    typing-name 4s steps(17, end) 9.3s forwards;
 }
 
 /* Animaciones */
@@ -408,7 +408,7 @@ main {
 
 @keyframes typing-name {
   from { width: 0; }
-  to { width: 20ch; } /* ajusta al largo de "Daniela Coronado" */
+  to { width: 17ch; } /* ajusta al largo de "Daniela Coronado" */
 }
 
 @keyframes hide {
@@ -431,7 +431,7 @@ main {
 
 @keyframes typing-name {
   from { width: 0; }
-  to { width: 18ch; }
+  to { width: 15ch; }
 }
 
 /* Responsive */
