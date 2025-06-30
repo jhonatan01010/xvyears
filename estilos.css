@@ -1,0 +1,685 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Gravitas+One&display=swap');
+
+
+html, body, main {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* CAMBIADO de height a min-height */
+  width: 100vw;
+  background-color: #cfcbda;
+  overflow: auto !important;
+
+}
+
+/* Load Settings*/
+.no-scroll-y {
+    overflow-y: hidden;
+}
+
+#preloader-section{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+}
+
+/* Imagen dentro del preloader centrada */
+.animation-preloader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.preloader-img {
+  max-width: 150px;
+  width: 40%;
+  height: auto;
+}
+
+/* Responsivo en móviles */
+@media screen and (max-width: 500px) {
+  .preloader-img {
+    width: 60%;
+    max-width: 120px;
+  }
+}
+/* Preloader */
+.ctn-preloader {
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: none;
+    display: -webkit-box;
+    display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: -15%;
+    width: 100%;
+    z-index: 9999;
+}
+.ctn-preloader .animation-preloader {
+    position: absolute;
+    z-index: 100;
+}
+
+/* Spinner loading */
+.ctn-preloader .animation-preloader .spinner {
+  width: 9em;
+  height: 9em;
+  border-radius: 50%;
+  animation: spinner 1s infinite linear;
+  margin: 0 auto 3.5em auto;
+}
+.ctn-preloader .animation-preloader .spinner::before,
+.ctn-preloader .animation-preloader .spinner::after {
+  content: " ";
+  position: absolute;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.ctn-preloader .animation-preloader .spinner::before {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg,#845EC2 0%, #d04ed6 100%);
+}
+/* Text Loading */
+.ctn-preloader .animation-preloader .txt-loading {
+  font: bold 5em 'Montserrat', sans-serif;
+    text-align: center;
+}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:before {
+  animation: letters-loading 4s infinite;
+  color: #845EC2;
+  content: attr(data-text-preloader);
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: rotateY(-90deg);
+  -webkit-animation: letters-loading 4s infinite;
+}
+.ctn-preloader .animation-preloader .txt-loading .letters-loading {
+    color: rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+/* Letters Animation */
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+  animation-delay: 0.2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+  animation-delay: 0.4s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+  animation-delay: 0.6s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+  animation-delay: 0.8s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+  animation-delay: 1s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+  animation-delay: 1.2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
+  animation-delay: 1.4s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(9):before {
+  animation-delay: 1.6s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(10):before {
+  animation-delay: 1.8s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(11):before {
+  animation-delay: 2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(12):before {
+  animation-delay: 2.2s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(13):before {
+  animation-delay: 2.4s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(14):before {
+  animation-delay: 2.6s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(15):before {
+  animation-delay: 2.8s;
+}
+
+.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(16):before {
+  animation-delay: 3s;
+}
+/* Loader section Settings */
+.ctn-preloader .loader-section {
+  background: #eaeaf4;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: calc(50% + 1px);
+}
+.ctn-preloader .loader-section.section-left {
+  left: 0;
+}
+.ctn-preloader .loader-section.section-right {
+  right: 0;
+}
+/* Fade effect in loading animation */
+.loaded .animation-preloader {
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+  .loaded .ctn-preloader {
+    display: none !important;
+  }
+  
+/* Curtain effect */
+.loaded .loader-section.section-left {
+  transform: translateX(-101%);
+  transition: 3.5s 0.1s all cubic-bezier(0.1, 0.1, 0.1, 2.000);
+}
+
+.loaded .loader-section.section-right {
+  transform: translateX(101%);
+  transition: 3.5s 0.1s all cubic-bezier(0.1, 0.1, 0.1, 2.000);
+}
+/* Preloader Animation */
+@-webkit-keyframes spinner {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+@keyframes spinner {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+/* Animation of the letters loading from the preloader */
+@keyframes letters-loading {
+  0%,
+  75%,
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+
+  25%,
+  50% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+@keyframes letters-loading {
+  0%,
+  75%,
+  100% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+
+  25%,
+  50% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+/* Backward laptop size (laptop, tablet, cell phone) */
+@media screen and (max-width: 767px) {
+    /* Preloader */
+    /* Spinner Loading */   
+    .ctn-preloader .animation-preloader .spinner {
+        height: 8em;
+        width: 8em;
+    }
+
+    /* Text Loading */
+    .ctn-preloader .animation-preloader .txt-loading {
+      font: bold 3.5em 'Montserrat', sans-serif;
+    }
+}
+@media screen and (max-width: 500px) {
+    /* Prelaoder */
+    /* Spinner Loading */
+    .ctn-preloader .animation-preloader .spinner {
+        height: 7em;
+        width: 7em;
+    }
+    /* Text Loading */
+    .ctn-preloader .animation-preloader .txt-loading {
+      font: bold 2em 'Montserrat', sans-serif;
+    }
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.container__cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cover img {
+  width: 80%;
+  max-width: 700px;
+  height: auto;
+  
+}
+
+/* Castillo con princesa encima */
+.castle-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin-top: -9rem; /* Ajusta según necesidad */
+  display: flex;
+  justify-content: center;
+}
+
+.castle-svg {
+  width: 100%;
+  height: auto;
+  transition: filter 1.5s ease-in-out, opacity 1.5s ease-in-out;
+  filter: brightness(0.7) saturate(80%) contrast(85%);
+  opacity: 1;
+}
+
+.princess-overlay {
+  position: absolute;
+  width: 40%;
+  bottom: 10%;
+  opacity: 0.7;
+  left: 50%;
+  filter: invert(41%) sepia(76%) saturate(200%) hue-rotate(221deg) brightness(85%) contrast(90%);
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -webkit-filter: invert(41%) sepia(76%) saturate(200%) hue-rotate(221deg) brightness(85%) contrast(90%);
+}
+
+/* Decoración floral inferior */
+.footer-decoration {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-top: -5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.flower-decoration.top {
+  position: absolute;
+  top: -15%;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+.flower-decoration.bottom {
+  position: relative; /* o quita esta línea */
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-top: -12rem; /* Ajusta según necesidad */
+  z-index: 1;
+  pointer-events: none;
+}
+.xv {
+  font-family: "Gravitas One", serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ffffffcc;
+  width: 0;
+  max-width: 90vw;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  color: #845EC2;
+  text-shadow: 0 0 3px #ffffff, 0 0 7px #ffffff, 3px 2px 5px #999999;
+}
+
+.xv.start-typewriter {
+  animation:
+    fadeIn 0.8s ease-out forwards,
+    typing 4.2s steps(20, end) 0.8s forwards,
+    hide 0.5s ease forwards 5.2s;
+}
+
+/* Segundo texto: Daniela Coronado */
+.nombre-quince {
+  font-family: "Gravitas One", serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #845EC2;
+  text-shadow: 0 0 3px #ffffff, 0 0 7px #ffffff, 3px 2px 5px #999999;
+  position: absolute;
+  top: 20%; /* igual que .xv */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 5;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ffffffcc;
+  width: 0;
+
+  animation:
+    fadeIn 0.5s ease-out forwards 9s,
+    typing-name 4s steps(20, end) 9.3s forwards;
+}
+
+/* Animaciones */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 17ch; }
+}
+
+@keyframes typing-name {
+  from { width: 0; }
+  to { width: 20ch; } /* ajusta al largo de "Daniela Coronado" */
+}
+
+@keyframes hide {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    border: none;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 17ch; } /* versión general */
+}
+
+@keyframes typing-name {
+  from { width: 0; }
+  to { width: 18ch; }
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .xv {
+    font-size: 2.2rem;
+  }
+
+  .nombre-quince {
+    font-size: 1.9rem;
+  }
+
+  .cover img,
+  .castle-svg {
+    max-width: 98%;
+  }
+
+  .castle-container {
+    max-width: 97%;
+  }
+
+  .princess-overlay {
+    width: 45%;
+    bottom: 5%;
+  }
+}
+
+
+.countdown-container {
+  background-color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #845EC2;
+  font-family: 'Gravitas One', serif;
+  position: relative;
+  z-index: 10;
+  margin-top: -20rem; /* o lo que necesites para separarlo visualmente */
+
+}
+
+.countdown-container h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#countdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: #f3f0f9;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 80px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#countdown span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #D65DB1;
+}
+
+.butterfly {
+  position: fixed;
+  width: 60px;
+  height: auto;
+  pointer-events: none;
+  z-index: 9999;
+  animation-timing-function: ease-in-out;
+}
+
+.info-section {
+  background-color: #F3F0F9;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #484554;
+}
+
+.info-box {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.info-box i {
+  font-size: 1.5rem;
+  color: #D65DB1;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.info-box p {
+  margin: 0.3rem auto;
+  color: #484554;
+}
+
+.map-container {
+  margin: 2rem 0 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-map {
+  background-color: #D65DB1;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-map:hover {
+  background-color: #cfcbda;
+  color: #484554;
+}
+
+.btn-map.waze {
+  background-color: #845EC2;
+}
+
+.btn-map.waze:hover {
+  background-color: #CFCBDA;
+  color: #000;
+}
+.agradecimiento-section {
+  background-color: #F3F0F9;
+  color: #D65DB1;
+  padding: 3rem 1.5rem; /* Good padding for most screens */
+  position: relative;
+  text-align: center;
+  border-radius: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.agradecimiento-content h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem; /* Default font size */
+  margin-bottom: 1rem;
+  color: #845EC2;
+  /* Add line-height for better readability on smaller screens */
+  line-height: 1.3;
+}
+
+.frase-final {
+  font-family: "Gravitas One", serif;
+  font-size: 3rem;
+  color: #D65DB1;
+  margin-top: 1rem;
+}
+
+.flower-corner {
+  position: absolute;
+  width: 20%; /* Default width for corners */
+  height: auto;
+  z-index: 2;
+}
+
+.flower-top-left {
+  top: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.flower-top-right {
+  top: 0;
+  right: 0;
+  transform: scale(-1, -1);
+  -webkit-transform: scale(-1, -1);
+  -moz-transform: scale(-1, -1);
+  -ms-transform: scale(-1, -1);
+  -o-transform: scale(-1, -1);
+}
+
+.flower-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.flower-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* For screens smaller than 768px (common tablet portrait / large phone landscape) */
+@media (max-width: 768px) {
+  .agradecimiento-content h2 {
+    font-size: 1.5rem; /* Slightly smaller font for tablets/larger phones */
+  }
+  .info-box i {
+    font-size: 1.8rem;
+  }
+}
+
+/* For screens smaller than 576px (common phone landscape / smaller phone portrait) */
+@media (max-width: 576px) {
+  .agradecimiento-section {
+    padding: 2rem 1rem; /* Reduce padding to give more space for text */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .info-box i {
+    font-size: 2rem;
+  }
+  .frase-final{
+    font-size: 2.5rem;
+  }
+
+  .agradecimiento-content h2 {
+    font-size: 1.2rem; /* Reduce font size further for small phones */
+  }
+
+  .flower-corner {
+    width: 25%; /* Increase percentage width slightly, or consider making them smaller */
+  }
+}
+
+/* For very small screens, typically less than 400px wide (e.g., iPhone 5/SE) */
+@media (max-width: 400px) {
+  .agradecimiento-content h2 {
+    font-size: 1rem; /* Even smaller font size for very small screens */
+  }
+  
+@media (max-width: 400px) {
+  .info-box i {
+    font-size: 2.2rem;
+  }
+  .flower-corner {
+    width: 40px; /* Adjust as needed, or consider hiding them on very small screens if they are too intrusive */
+  }
+}
+}
