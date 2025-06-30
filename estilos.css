@@ -458,8 +458,7 @@ main {
     bottom: 5%;
   }
 }
-
-
+/* Estilo general (pantallas grandes como PC) */
 .countdown-container {
   background-color: #fff;
   text-align: center;
@@ -468,8 +467,14 @@ main {
   font-family: 'Gravitas One', serif;
   position: relative;
   z-index: 10;
-  margin-top: 15rem; /* o lo que necesites para separarlo visualmente */
+  margin-top: 20rem;
+}
 
+/* Estilo para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .countdown-container {
+    margin-top: 35rem; /* Ajusta según cómo se vea en tu celular */
+  }
 }
 
 .countdown-container h2 {
