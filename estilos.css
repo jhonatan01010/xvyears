@@ -458,6 +458,13 @@ main {
     bottom: 5%;
   }
 }
+/* Media query para pantallas pequeñas */
+@media (max-width: 480px) {
+  .nombre-quince {
+    font-size: 2rem;
+    top: 25%;
+  }
+}
 /* Estilo general (pantallas grandes como PC) */
 .countdown-container {
   background-color: #fff;
