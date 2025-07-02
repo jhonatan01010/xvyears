@@ -688,3 +688,35 @@ main {
   }
 }
 }
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+    padding: 10px 0; /* Espaciado arriba y abajo */
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
